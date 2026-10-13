@@ -1,0 +1,28 @@
+ticker,segment_name,fiscal_year_label,fiscal_quarter_label,period_end,cloud_revenue_usd,segment_definition_note,source_url,release_date,filled_by,verified
+GOOGL,Google Cloud,2019,Q4,2019-12-31,2614000000,"Alphabet introduced 'Google Cloud' as a distinct reportable segment starting with its Q4/FY2020 earnings release (filed 2021-02-02), which recast Q4 2019 and FY2018-2020 as comparatives. Individual Q1-Q3 2019 and all 2018 quarters are NOT available at quarterly granularity (only annual totals were disclosed for those periods) -- left as gaps, not estimated. Before this reorg, cloud revenue was bundled inside 'Google other revenues'.",https://www.sec.gov/Archives/edgar/data/1652044/000165204421000006/googexhibit991q420.htm,2021-02-02,claude-research-googl,TRUE
+GOOGL,Google Cloud,2020,Q1,2020-03-31,2777000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204421000006/googexhibit991q420.htm,2021-02-02,claude-research-googl,TRUE
+GOOGL,Google Cloud,2020,Q2,2020-06-30,3007000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204421000006/googexhibit991q420.htm,2021-02-02,claude-research-googl,TRUE
+GOOGL,Google Cloud,2020,Q3,2020-09-30,3444000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204421000006/googexhibit991q420.htm,2021-02-02,claude-research-googl,TRUE
+GOOGL,Google Cloud,2020,Q4,2020-12-31,3831000000,No further Google Cloud segment redefinition found through FY2025 10-K (GCP + Google Workspace consistently).,https://www.sec.gov/Archives/edgar/data/1652044/000165204421000006/googexhibit991q420.htm,2021-02-02,claude-research-googl,TRUE
+GOOGL,Google Cloud,2021,Q1,2021-03-31,4047000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204421000018/googexhibit991q12021.htm,2021-04-27,claude-research-googl,TRUE
+GOOGL,Google Cloud,2021,Q2,2021-06-30,4628000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204421000041/googexhibit991q22021.htm,2021-07-27,claude-research-googl,TRUE
+GOOGL,Google Cloud,2021,Q3,2021-09-30,4990000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204421000054/googexhibit991q32021.htm,2021-10-26,claude-research-googl,TRUE
+GOOGL,Google Cloud,2021,Q4,2021-12-31,5541000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204422000015/googexhibit991q42021.htm,2022-02-01,claude-research-googl,TRUE
+GOOGL,Google Cloud,2022,Q1,2022-03-31,5821000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204422000025/googexhibit991q12022.htm,2022-04-26,claude-research-googl,TRUE
+GOOGL,Google Cloud,2022,Q2,2022-06-30,6276000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204422000068/googexhibit991q22022.htm,2022-07-26,claude-research-googl,TRUE
+GOOGL,Google Cloud,2022,Q3,2022-09-30,6868000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204422000085/googexhibit991q32022.htm,2022-10-25,claude-research-googl,TRUE
+GOOGL,Google Cloud,2022,Q4,2022-12-31,7315000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204423000013/googexhibit991q42022.htm,2023-02-02,claude-research-googl,TRUE
+GOOGL,Google Cloud,2023,Q1,2023-03-31,7454000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204423000041/googexhibit991q12023.htm,2023-04-25,claude-research-googl,TRUE
+GOOGL,Google Cloud,2023,Q2,2023-06-30,8031000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204423000067/googexhibit991q22023.htm,2023-07-25,claude-research-googl,TRUE
+GOOGL,Google Cloud,2023,Q3,2023-09-30,8411000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204423000088/googexhibit991q32023.htm,2023-10-24,claude-research-googl,TRUE
+GOOGL,Google Cloud,2023,Q4,2023-12-31,9192000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204424000014/googexhibit991q42023.htm,2024-01-30,claude-research-googl,TRUE
+GOOGL,Google Cloud,2024,Q1,2024-03-31,9574000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204424000047/googexhibit991q12024.htm,2024-04-25,claude-research-googl,TRUE
+GOOGL,Google Cloud,2024,Q2,2024-06-30,10347000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204424000076/googexhibit991q22024.htm,2024-07-23,claude-research-googl,TRUE
+GOOGL,Google Cloud,2024,Q3,2024-09-30,11353000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204424000115/googexhibit991q32024.htm,2024-10-29,claude-research-googl,TRUE
+GOOGL,Google Cloud,2024,Q4,2024-12-31,11955000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204425000010/googexhibit991q42024.htm,2025-02-04,claude-research-googl,TRUE
+GOOGL,Google Cloud,2025,Q1,2025-03-31,12260000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204425000040/googexhibit991q12025.htm,2025-04-24,claude-research-googl,TRUE
+GOOGL,Google Cloud,2025,Q2,2025-06-30,13624000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204425000056/googexhibit991q22025.htm,2025-07-23,claude-research-googl,TRUE
+GOOGL,Google Cloud,2025,Q3,2025-09-30,15157000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204425000087/googexhibit991q32025.htm,2025-10-29,claude-research-googl,TRUE
+GOOGL,Google Cloud,2025,Q4,2025-12-31,17664000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204426000012/googexhibit991q42025.htm,2026-02-04,claude-research-googl,TRUE
+GOOGL,Google Cloud,2026,Q1,2026-03-31,20028000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204426000043/googexhibit991q12026.htm,2026-04-29,claude-research-googl,TRUE
+GOOGL,Google Cloud,2026,Q2,2026-06-30,24768000000,,https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm,2026-07-22,claude-research-googl,TRUE
