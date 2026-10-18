@@ -1,0 +1,112 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\footnotesize Predictive Analytics | Cakrawala University}
+\lhead{\footnotesize Group Project Contribution Statement}
+\rfoot{\footnotesize Page \thepage}
+
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{GROUP PROJECT CONTRIBUTION STATEMENT}}\\[0.4em]
+    {\large Predictive Analytics -- Cakrawala University}\\[0.2em]
+    {\normalsize Academic Year 2026/2027}\\[1em]
+\end{center}
+
+\noindent\textbf{Project Title:} Hyperscaler Capital Expenditure and Cloud Segment Revenue Growth: An Empirical Time-Series \& Econometric Analysis \\
+\textbf{Theme:} Finance and Business Analytics \\
+\textbf{Task Type:} Time-Series Forecasting (One-Step-Ahead Walk-Forward Evaluation) \\
+\textbf{Dataset Registry:} \url{s.id/listdatapred02} \\
+\textbf{Submission Date:} 19 October 2026
+
+\vspace{0.8em}
+\noindent\rule{\linewidth}{1.2pt}
+
+\section{Group Membership and Overview of Shared Responsibility}
+
+This project was conducted collaboratively. The analytical, computational, and presentational responsibilities were distributed as follows: TITA NOVIANA (40\%), SUCI FRANSISCA SISILIA R (40\%), and NADIRA DIKA KAIVALYA (20\%). In accordance with the course assessment criteria, every member maintains comprehensive ownership and technical understanding of the end-to-end predictive analytics workflow.
+
+\vspace{0.5em}
+\begin{table}[h!]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{p{4.5cm} c p{5.5cm} c}
+\toprule
+\textbf{Full Name} & \textbf{Student ID} & \textbf{Primary Assigned Role} & \textbf{Contribution (\%)} \\
+\midrule
+\textbf{TITA NOVIANA} & 24120500011 & Lead Data Engineering \& Econometric Modeling & 40\% \\
+\textbf{SUCI FRANSISCA SISILIA R} & 24120500008 & Lead Machine Learning \& Hyperparameter Tuning & 40\% \\
+\textbf{NADIRA DIKA KAIVALYA} & 24110500023 & Lead Business Translation \& Regime Analysis & 20\% \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Detailed Breakdown of Contributions across Core Dimensions}
+
+\subsection{1. TITA NOVIANA (Student ID: 24120500011)}
+\textbf{Role:} Lead Data Engineering \& Econometric Modeling
+\begin{itemize}[leftmargin=1.5em, itemsep=0.2em]
+    \item \textbf{Analytical Contribution:} Formulated the foundational predictive questions and research hypotheses ($H_1, H_2, H_3$); designed the causal chronological expanding-window walk-forward validation framework; performed statistical stationarity audits (Augmented Dickey-Fuller tests) and cross-correlation function (CCF) lag diagnostics.
+    \item \textbf{Coding \& Implementation:} Engineered automated data pipelines for SEC EDGAR XBRL companyfacts API and FRED Federal Reserve macroeconomic series (\texttt{pull\_edgar.py}, \texttt{pull\_fred.py}); implemented chronological panel feature lagging with strict zero-leakage controls (\texttt{build\_panel.py}); programmed the Naive Persistence Baseline and AR(1) ARIMA maximum-likelihood models.
+    \item \textbf{Interpretation Contribution:} Evaluated baseline persistence dynamics versus autoregressive econometric models; interpreted the downward life-cycle drift in hyperscaler growth rates; analyzed sample size constraints and standard error bounds.
+    \item \textbf{Presentation \& Defense:} Delivered Presentation Pitch Sections 1 \& 2 (Business Problem Context, Capital Allocation Stakeholder Dilemma, & Zero-Leakage Data Pipeline Architecture); prepared for Technical Interview inquiries on data auditing and time-series stationarity.
+\end{itemize}
+
+\vspace{0.4em}
+\subsection{2. SUCI FRANSISCA SISILIA R (Student ID: 24120500008)}
+\textbf{Role:} Lead Machine Learning \& Hyperparameter Tuning
+\begin{itemize}[leftmargin=1.5em, itemsep=0.2em]
+    \item \textbf{Analytical Contribution:} Designed the systematic hyperparameter search spaces for the two primary non-baseline models (Regularized Linear and Gradient Boosted Trees); established expanding-window \texttt{TimeSeriesSplit} cross-validation protocols to prevent temporal data contamination; evaluated shrinkage mechanics in ill-conditioned financial panels.
+    \item \textbf{Coding \& Implementation:} Developed regularized Ridge ($L_2$) and Lasso ($L_1$) estimators with dynamic regularization path optimization; implemented the XGBoost Regressor with shallow-tree constraints (\texttt{max\_depth=2..3}); generated comprehensive model evaluation tables (RMSE, MAE, Directional Accuracy) and diagnostic visualization plots.
+    \item \textbf{Interpretation Contribution:} Conducted the Default-versus-Tuned comparative performance audit required by the rubric; interpreted Lasso coefficient shrinkage to zero ($0.000$) for all lagged capex features; synthesized empirical evidence disproving the multi-quarter capex predictive hypothesis.
+    \item \textbf{Presentation \& Defense:} Delivered Presentation Pitch Section 3 (Candidate Model Benchmark, Default vs. Tuned Performance Trade-offs, & Non-Causal Feature Interpretation); prepared for Technical Interview questions regarding hyperparameter search spaces and regularization.
+\end{itemize}
+
+\vspace{0.4em}
+\subsection{3. NADIRA DIKA KAIVALYA (Student ID: 24110500023)}
+\textbf{Role:} Lead Business Translation, Regime Analysis \& Governance
+\begin{itemize}[leftmargin=1.5em, itemsep=0.2em]
+    \item \textbf{Analytical Contribution:} Formulated the structural break and regime shift test ($H_3$) comparing the pre-2023 cloud maturation era against the post-2023 Generative AI boom; audited the Microsoft FY2024 segment reclassification (-17\% revenue recast); designed the transparent 2030 compounding scenario exercise.
+    \item \textbf{Coding \& Implementation:} Sourced, audited, and verified 121 quarterly observations of cloud segment revenues directly from Form 8-K Exhibit 99.1 earnings releases (\texttt{cloud\_segment\_manual.csv}); implemented pre- vs. post-2023 regime evaluation routines; generated the 2030 fan chart visualization with widening uncertainty bands.
+    \item \textbf{Interpretation Contribution:} Formulated the 3 Core Analytical Findings and 2 Feasible Strategic Recommendations for Chief Financial Officers; analyzed server depreciation overhang (4–6 year schedules), internal R&D absorption vs. commercial cloud revenue, and gross margin compression risks.
+    \item \textbf{Presentation \& Defense:} Delivered Presentation Pitch Section 4 (Strategic C-Level Actionable Recommendations, Capital Budget Decoupling, & 2030 Long-Term Scenarios); led the group during the 5-minute stakeholder Q&A panel and Technical Interview defense.
+\end{itemize}
+
+\section{Academic Integrity and Individual Ownership Statement}
+
+We hereby affirm that:
+\begin{enumerate}[leftmargin=1.5em, itemsep=0.2em]
+    \item The submitted predictive analysis represents our original, collaborative work, conducted specifically for the Predictive Analytics course at Cakrawala University.
+    \item All external financial datasets and macroeconomic indicators are publicly available and accurately cited to primary SEC filings and Federal Reserve repositories.
+    \item The final responsibilities and analytical ownership are allocated as TITA NOVIANA (40\%), SUCI FRANSISCA SISILIA R (40\%), and NADIRA DIKA KAIVALYA (20\%). Every member understands the complete pipeline from data extraction to model interpretation and is prepared to independently defend any component during the technical interview.
+\end{enumerate}
+
+\vspace{2.5em}
+\noindent\begin{tabularx}{\linewidth}{X c X c X}
+\cline{1-1} \cline{3-3} \cline{5-5}
+\vspace{0.2em}\centering\textbf{TITA NOVIANA} & & \vspace{0.2em}\centering\textbf{SUCI FRANSISCA SISILIA R} & & \vspace{0.2em}\centering\textbf{NADIRA DIKA KAIVALYA} \\
+\centering Student ID: 24120500011 & & \centering Student ID: 24120500008 & & \centering Student ID: 24110500023 \\
+\end{tabularx}
+
+\end{document}
