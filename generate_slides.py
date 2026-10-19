@@ -22,7 +22,7 @@ GRAY_LT   = RGBColor(0xE5, 0xE7, 0xEB)
 RED_SOFT  = RGBColor(0xDC, 0x26, 0x26)
 GREEN_OK  = RGBColor(0x16, 0xA3, 0x4A)
 
-LOGO_PATH = Path(r"C:\Users\User\Downloads\images.png")
+LOGO_PATH = Path(__file__).resolve().parent / "logo.png"
 SLIDE_W   = Inches(13.333)
 SLIDE_H   = Inches(7.5)
 
@@ -177,7 +177,7 @@ agenda_items = [
     "Part III: Regime Shifts & Executive Strategy (Nadira Dika Kaivalya — 20%)",
     "   8.  Regime Shift Test: Pre-2023 vs. Post-2023 AI Boom",
     "   9.  Strategic Recommendations for C-Level Executives",
-    "   10. 2030 Scenarios, Limitations & Next Steps",
+    "   10. 2030 Strategic Scenarios, Technical & Business Limitations",
 ]
 add_bullet_list(s, agenda_items, Inches(1.0), Inches(1.3), Inches(11), Inches(5.8), font_size=13, color=BLACK)
 
@@ -608,64 +608,146 @@ findings = [
 add_bullet_list(s, findings, Inches(0.5), Inches(5.0), Inches(12.3), Inches(2.0), font_size=12)
 
 # ═══════════════════════════════════════════════════════════════
-# SLIDE 12: 2030 SCENARIOS & CLOSING
+# ═══════════════════════════════════════════════════════════════
+# SLIDE 12: 2030 SCENARIOS, TECHNICAL & BUSINESS LIMITATIONS
 # ═══════════════════════════════════════════════════════════════
 s = add_slide()
 add_logo(s)
 add_bottom_bar(s)
-add_title_text(s, "2030 Scenarios, Limitations & Next Steps", Inches(0.8), Inches(0.3), Inches(11), Inches(0.6), font_size=28)
-add_gold_accent(s, Inches(0.9))
+add_title_text(s, "2030 Strategic Scenarios & Project Limitations", Inches(0.8), Inches(0.25), Inches(11), Inches(0.55), font_size=26)
+add_gold_accent(s, Inches(0.82))
 
-# Scenario table
-add_body_text(s, "Illustrative 2030 Cloud Revenue Scenarios (Explicit Assumptions, NOT ML Forecasts)",
-    Inches(0.8), Inches(1.1), Inches(11), Inches(0.4), font_size=13, color=TEAL, bold=True)
-tbl = make_table(s, 4, 3, Inches(0.8), Inches(1.6), Inches(7), Inches(1.6))
-for i, h in enumerate(["Scenario", "Annual Growth Assumption", "Risk Profile"]):
+# --- UPPER SECTION: 2030 Scenarios vs Model Horizon ---
+# Left: Scenario Table (Compact)
+add_body_text(s, "Strategic 2030 Capacity Scenarios (Heuristic Bounds, NOT an ML Forecast)",
+    Inches(0.6), Inches(0.95), Inches(6.8), Inches(0.3), font_size=11, color=TEAL, bold=True)
+tbl = make_table(s, 4, 3, Inches(0.6), Inches(1.25), Inches(6.8), Inches(1.4))
+for i, h in enumerate(["Scenario", "Growth Assumption", "Structural Driver / Risk Profile"]):
     tbl.cell(0, i).text = h
 style_header_row(tbl, 3)
 scen_data = [
-    ["Bear Case", "5% YoY", "GPU commoditization, AI monetization plateau"],
-    ["Base Case", "15% YoY", "Steady migration + moderate AI capture"],
-    ["Bull Case", "30% YoY", "Transformative enterprise AI + sovereign cloud"],
+    ["Bear Case", "5% YoY", "GPU commoditization, enterprise AI monetization plateau"],
+    ["Base Case", "15% YoY", "Steady cloud migration + moderate GenAI workload capture"],
+    ["Bull Case", "30% YoY", "Transformative enterprise agentic AI + sovereign cloud demand"],
 ]
 for r, row_data in enumerate(scen_data):
     for c, val in enumerate(row_data):
-        style_body_cell(tbl.cell(r+1, c), val, font_size=11, align=PP_ALIGN.LEFT if c == 2 else PP_ALIGN.CENTER)
+        style_body_cell(tbl.cell(r+1, c), val, font_size=9.5, align=PP_ALIGN.LEFT if c == 2 else PP_ALIGN.CENTER)
 
-# Limitations
-add_body_text(s, "Methodological Limitations", Inches(0.8), Inches(3.6), Inches(5), Inches(0.4), font_size=14, color=TEAL, bold=True)
-lim_points = [
-    "•  Small quarterly samples (N = 22–39 per ticker)",
-    "•  Capex is aggregated (AI + generic infra)",
-    "•  Segment recasts create discontinuities",
-    "•  MAPE unstable near zero-growth quarters",
+# Right: Explanatory Callout: Why ML Cannot Predict to 2030
+callout_box = s.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(7.6), Inches(1.05), Inches(5.15), Inches(1.6))
+callout_box.fill.solid()
+callout_box.fill.fore_color.rgb = RGBColor(0xF0, 0xFD, 0xFA)
+callout_box.line.color.rgb = TEAL
+callout_box.line.width = Pt(1.5)
+tf_c = callout_box.text_frame
+tf_c.word_wrap = True
+tf_c.margin_left = Inches(0.15)
+tf_c.margin_right = Inches(0.15)
+tf_c.margin_top = Inches(0.08)
+p = tf_c.paragraphs[0]
+p.text = "Why Can't the Model Predict to 2030?"
+p.font.size = Pt(11)
+p.font.bold = True
+p.font.color.rgb = TEAL
+
+reasons_2030 = [
+    "•  1-Quarter Horizon Limit (h=1): Models were strictly validated for 1Q-ahead. Iterative 16-20Q projections suffer fatal recursive error compounding.",
+    "•  Zero Capex Predictive Signal: Regularization shrinks all capex lags to 0.000 — no empirical basis exists for multi-year ML extrapolation.",
+    "•  Role of 2030 Numbers: Heuristic compounding stress-test for capacity downside planning, explicitly NOT a statistical model prediction.",
 ]
-add_bullet_list(s, lim_points, Inches(0.8), Inches(4.1), Inches(5.5), Inches(2.0), font_size=12)
+for r_text in reasons_2030:
+    p = tf_c.add_paragraph()
+    p.text = r_text
+    p.font.size = Pt(9.5)
+    p.font.color.rgb = BLACK
+    p.space_before = Pt(2)
 
-# Next steps
-add_body_text(s, "Recommended Next Steps", Inches(7), Inches(3.6), Inches(5), Inches(0.4), font_size=14, color=TEAL, bold=True)
-next_points = [
-    "•  Incorporate GPU export tracking data",
-    "•  Add datacenter power interconnect filings",
-    "•  NLP sentiment from earnings call transcripts",
-    "•  Test multi-year (4–8Q) transmission lags",
+# --- MIDDLE SECTION: Two Detailed Limitation Cards ---
+# Left Card: Technical & Methodological Limitations
+card_tech = s.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.6), Inches(2.8), Inches(5.95), Inches(2.95))
+card_tech.fill.solid()
+card_tech.fill.fore_color.rgb = RGBColor(0xF8, 0xFA, 0xFC)
+card_tech.line.color.rgb = TEAL
+card_tech.line.width = Pt(1.5)
+tf_t = card_tech.text_frame
+tf_t.word_wrap = True
+tf_t.margin_left = Inches(0.15)
+tf_t.margin_right = Inches(0.15)
+tf_t.margin_top = Inches(0.08)
+p = tf_t.paragraphs[0]
+p.text = "Technical & Methodological Limitations"
+p.font.size = Pt(12)
+p.font.bold = True
+p.font.color.rgb = TEAL
+
+tech_points = [
+    "•  Short Forecast Horizon (h=1Q): Validated solely for 1-step ahead; cannot project long-term horizons (2030) without exponential error drift.",
+    "•  Small Sample Size (N=98 clean): Quarterly panel (GOOGL n=22, MSFT n=40, AMZN n=46) limits complex non-linear training; XGBoost overfits validation.",
+    "•  Aggregated Capex Data: SEC 10-K/Q filings combine AI datacenter chips with real estate, office hardware, and retail logistics (no pure AI capex).",
+    "•  Accounting Recasts: MSFT FY24/25 segment restatement creates structural breaks requiring manual same-vintage reconciliation.",
+    "•  Target Metric Definition: Target is growth change (Delta YoY, can be <= 0), making MAPE mathematically undefined; evaluation relies strictly on RMSE.",
 ]
-add_bullet_list(s, next_points, Inches(7), Inches(4.1), Inches(5.5), Inches(2.0), font_size=12)
+for t_pt in tech_points:
+    p = tf_t.add_paragraph()
+    p.text = t_pt
+    p.font.size = Pt(9.5)
+    p.font.color.rgb = BLACK
+    p.space_before = Pt(3)
 
-# Thank you band
-band2 = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Emu(0), Inches(5.8), SLIDE_W, Inches(1.2))
+# Right Card: Business & Decision-Making Limitations
+card_biz = s.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(6.8), Inches(2.8), Inches(5.95), Inches(2.95))
+card_biz.fill.solid()
+card_biz.fill.fore_color.rgb = RGBColor(0xFF, 0xFB, 0xEB)
+card_biz.line.color.rgb = GOLD
+card_biz.line.width = Pt(1.5)
+tf_b = card_biz.text_frame
+tf_b.word_wrap = True
+tf_b.margin_left = Inches(0.15)
+tf_b.margin_right = Inches(0.15)
+tf_b.margin_top = Inches(0.08)
+p = tf_b.paragraphs[0]
+p.text = "Business & Decision-Making Limitations"
+p.font.size = Pt(12)
+p.font.bold = True
+p.font.color.rgb = TEAL
+
+biz_points = [
+    "•  No Short-Term Guidance Signal: Capex guidance announcements cannot serve as an early indicator to revise 1Q-ahead cloud revenue forecasts.",
+    "•  Multi-Year Gestation Lag: Datacenter construction, utility power permits, and cluster setups take 2–4+ years before generating billable customer revenue.",
+    "•  Internal R&D Absorption: Significant AI capex feeds proprietary foundation models (Gemini, Copilot, Llama), not third-party cloud segment billing.",
+    "•  Non-Causal Relationship: Findings show predictive independence, not causal absence; macroeconomic IT budgets and interest rates dominate.",
+    "•  Unfit for 2030 Capital Commitments: Model cannot justify $50B+ multi-year capex outlays; requires modular tranche-based leasing and RPO monitoring.",
+]
+for b_pt in biz_points:
+    p = tf_b.add_paragraph()
+    p.text = b_pt
+    p.font.size = Pt(9.5)
+    p.font.color.rgb = BLACK
+    p.space_before = Pt(3)
+
+# --- BOTTOM SECTION: Next Steps & Closing Banner ---
+band2 = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Emu(0), Inches(5.9), SLIDE_W, Inches(1.25))
 band2.fill.solid()
 band2.fill.fore_color.rgb = TEAL
 band2.line.fill.background()
+
 add_title_text(s, "Thank You — Questions & Discussion",
-    Inches(0.8), Inches(5.9), Inches(11), Inches(0.6), font_size=26, color=WHITE, alignment=PP_ALIGN.CENTER)
-add_body_text(s, "Tita Noviana (40%)  •  Suci Fransisca Sisilia R (40%)  •  Nadira Dika Kaivalya (20%)",
-    Inches(0.8), Inches(6.45), Inches(11), Inches(0.4), font_size=13, color=GOLD, alignment=PP_ALIGN.CENTER)
+    Inches(0.8), Inches(5.98), Inches(11.7), Inches(0.38), font_size=20, color=WHITE, alignment=PP_ALIGN.CENTER)
+add_body_text(s, "Recommended Next Steps: Datacenter power filings • Cluster-level GPU utilization tracking • 4–8Q multi-year lag modeling",
+    Inches(0.8), Inches(6.38), Inches(11.7), Inches(0.28), font_size=10.5, color=GOLD, bold=True, alignment=PP_ALIGN.CENTER)
+add_body_text(s, "Cakrawala University • Predictive Analytics (Meeting 14 & Technical Interview) • Tita Noviana (40%) • Suci Fransisca Sisilia R (40%) • Nadira Dika Kaivalya (20%)",
+    Inches(0.8), Inches(6.68), Inches(11.7), Inches(0.25), font_size=9.5, color=GRAY_LT, alignment=PP_ALIGN.CENTER)
 
 # ═══════════════════════════════════════════════════════════════
 # SAVE
 # ═══════════════════════════════════════════════════════════════
-output_path = str(Path(__file__).resolve().parent / "Presentation_Predictive_Analytics.pptx")
-prs.save(output_path)
-print(f"Successfully generated: {output_path}")
+output_path = Path(__file__).resolve().parent / "Presentation_Predictive_Analytics.pptx"
+try:
+    prs.save(str(output_path))
+    print(f"Successfully generated: {output_path}")
+except PermissionError:
+    fallback_path = Path(__file__).resolve().parent / "Presentation_Predictive_Analytics_new.pptx"
+    prs.save(str(fallback_path))
+    print(f"Note: {output_path.name} is currently open in PowerPoint. Saved to fallback: {fallback_path.name}")
 print(f"Total slides: {len(prs.slides)}")
